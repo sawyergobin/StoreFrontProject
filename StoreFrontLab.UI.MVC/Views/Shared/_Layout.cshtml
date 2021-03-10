@@ -92,12 +92,12 @@
                                 <div>English</div>
                                 <span class="arrow_carrot-down"></span>
                                 <ul>
-                                    <li><a href="#">Spanis</a></li>
+                                    <li><a href="#">Spanish</a></li>
                                     <li><a href="#">English</a></li>
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i> Login</a>
+                                @Html.Partial("_LoginPartial")
                             </div>
                         </div>
                     </div>
@@ -119,6 +119,11 @@
                             <li><a href="#">Shopping Cart</a></li>
                             <li><a href="@Url.Action("About","Home")">About Us</a></li>
                             <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
+                            @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                            {
+                                <li>@Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")</li>
+                                <li>@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")</li>
+                            }
                         </ul>
                     </nav>
                 </div>
