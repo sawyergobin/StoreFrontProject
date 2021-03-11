@@ -14,11 +14,10 @@ namespace StoreFrontLab.DATA.EF//.Metadata = namespace matching the original cla
 
     public class CategoryMetaData
     {
-        [Required(ErrorMessage ="*Category ID is required")]
-        [Display(Name = "Category ID")]
-        public int CategoryID { get; set; }
+        //public int CategoryID { get; set; }
         [Required(ErrorMessage = "*Category Name is required")]
         [Display(Name = "Category Name")]
+        [StringLength(30, ErrorMessage ="*Must not be more than 30 characters")]
         public string CategoryName { get; set; }
     }
     #endregion
@@ -29,40 +28,40 @@ namespace StoreFrontLab.DATA.EF//.Metadata = namespace matching the original cla
 
     public class ProductMetaData
     {
-        //TODO Set the further specs of what these need to be
-        [Required(ErrorMessage = "*Product ID is required")]
-        [Display(Name = "Unique Product ID")]
-        public int ProductID { get; set; }
+        //public int ProductID { get; set; }
 
         [Required(ErrorMessage = "*Product Name is required")]
         [Display(Name = "Product Name")]
+        [StringLength(30, ErrorMessage = "*Must not be more than 30 characters")]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "*A Description is required")]
         [Display(Name = "Product Description")]
         [UIHint("MultilineText")]
+        [StringLength(300, ErrorMessage = "*Must not be more than 300 characters")]
         public string Description { get; set; }
 
         [Required(ErrorMessage = "*Category ID is required")]
-        [Display(Name = "Product Status ID")]
+        [Display(Name = "Category")]
         public int CategoryID { get; set; }
 
         [Required(ErrorMessage = "*Product Status ID is required")]
-        [Display(Name = "Product Status ID")]
+        [Display(Name = "Product Status")]
         public int ProductStatusID { get; set; }
 
         [Required(ErrorMessage = "*Calorie Count is required")]
-        [Display(Name = "Product Calorie Count")]
+        [Display(Name = "Calorie Count")]
         public short CalorieCount { get; set; }
 
         [Required(ErrorMessage = "*A Price is required")]
+        [DisplayFormat(DataFormatString = "{0:c}")]
         public decimal Price { get; set; }
 
         //No validation on boolean values
         [Display(Name = "Is Product On Sale?")]
         public bool IsOnSale { get; set; }
 
-        [DisplayFormat(NullDisplayText = "00")]
+        [DisplayFormat(NullDisplayText = "N/A")]
         public Nullable<byte> DiscountPercentage { get; set; }
 
         [Required(ErrorMessage = "*A Product Image is required")]
@@ -78,9 +77,7 @@ namespace StoreFrontLab.DATA.EF//.Metadata = namespace matching the original cla
 
     public class ProductStatusMetaData
     {
-        [Required(ErrorMessage = "*Product Status ID is required")]
-        [Display(Name = "Product Status ID")]
-        public int ProductStatusID { get; set; }
+        //public int ProductStatusID { get; set; }
 
         [Required(ErrorMessage = "*Product Status Name is required")]
         [Display(Name = "Status Name")]

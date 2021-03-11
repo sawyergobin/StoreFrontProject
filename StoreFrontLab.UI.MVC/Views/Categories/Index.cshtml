@@ -1,33 +1,38 @@
 ﻿@model IEnumerable<StoreFrontLab.DATA.EF.Category>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Product Categories";
 }
+<div class="offset-lg-2 col-lg-8 order-md-1 order-1">
+    <h2>@ViewBag.Title</h2>
+    <br />
+    <p>
+        @Html.ActionLink("Add Category", "Create", null, new { @class = "btn btn-success" })
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
+            <th></th>
+            <th></th>
 
-<h2>Index</h2>
+        </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CategoryName)
-        </th>
-        <th></th>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryName)
+                </td>
+                <td>
+                    @Html.ActionLink("Modify Category", "Edit", new { id = item.CategoryID }) |
+                    @Html.ActionLink("Category Info", "Details", new { id = item.CategoryID })
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CategoryName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CategoryID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CategoryID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CategoryID })
-        </td>
-    </tr>
-}
+                </td>
+                <td>@Html.ActionLink("Delete", "Delete", new { id = item.CategoryID }, new { @class = "btn btn-danger" })</td>
+            </tr>
+        }
 
-</table>
+    </table>
+</div>

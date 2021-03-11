@@ -18,14 +18,14 @@
     <link rel="stylesheet" href="~/Content/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="~/Content/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="~/Content/css/style.css" type="text/css">
-    <link href="~/Content/CustomStyles.css" rel="stylesheet" />
+    <link href="~/Content/CustomStyles.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
     </div>
-    <!-- Hamburger Begin -->
+    <!-- Hamburger Mobile Menu Begin -->
     <div class="hamburger__menu__overlay"></div>
     <div class="hamburger__menu__wrapper">
         <div class="hamburger__menu__logo">
@@ -65,7 +65,7 @@
             </ul>
         </div>
     </div>
-    <!-- Hamburger End -->
+    <!-- Hamburger Mobile Menu End -->
     <!-- Header Section Begin -->
     <header class="header">
         <div class="header__top">
@@ -74,8 +74,8 @@
                     <div class="col-lg-6">
                         <div class="header__top__left">
                             <ul>
-                                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                                <li>Free Shipping for all Order of $99</li>
+                                <li><i class="fa fa-envelope"></i> staff@virtualvm.com</li>
+                                <li>Free 1-Hour express shipping for orders over $10</li>
                             </ul>
                         </div>
                     </div>
@@ -86,15 +86,6 @@
                                 <a href="#"><i class="fa fa-twitter"></i></a>
                                 <a href="#"><i class="fa fa-linkedin"></i></a>
                                 <a href="#"><i class="fa fa-pinterest-p"></i></a>
-                            </div>
-                            <div class="header__top__right__language">
-                                <img src="~/Content/img/language.png" alt="">
-                                <div>English</div>
-                                <span class="arrow_carrot-down"></span>
-                                <ul>
-                                    <li><a href="#">Spanish</a></li>
-                                    <li><a href="#">English</a></li>
-                                </ul>
                             </div>
                             <div class="header__top__right__auth">
                                 @Html.Partial("_LoginPartial")
@@ -119,13 +110,13 @@
                             <li><a href="#">Shopping Cart</a></li>
                             <li><a href="@Url.Action("About","Home")">About Us</a></li>
                             <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
+                            <li>@Html.ActionLink("Product Categories", "Index", "Categories")</li>
+                            <li>@Html.ActionLink("Products", "Index", "Products")</li>
+                            <li>@Html.ActionLink("Product Statuses", "Index", "ProductStatuses")</li>
                             @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                             {
-                                <li>@Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")</li>
-                                <li>@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")</li>
-                                <li>@Html.ActionLink("Product Categories", "Index", "Categories")</li>
-                                <li>@Html.ActionLink("Products", "Index", "Products")</li>
-                                <li>@Html.ActionLink("Product Statuses", "Index", "ProductStatuses")</li>
+                                <li>@Html.ActionLink("Roles Admin", "Index", "RolesAdmin")</li>
+                                <li>@Html.ActionLink("Users Admin", "Index", "UsersAdmin")</li>
                             }
                         </ul>
                     </nav>
@@ -176,7 +167,7 @@
         </div>
     </section>
     <!-- Hero Section End -->
-    <div>
+    <div class="main-content">
         @RenderBody()
     </div>
     <!-- Footer Section Begin -->
