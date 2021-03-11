@@ -1,33 +1,39 @@
 ﻿@model IEnumerable<StoreFrontLab.DATA.EF.ProductStatus>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Product Statuses";
 }
 
-<h2>Index</h2>
+<div class="offset-lg-2 col-lg-8 order-md-1 order-1">
+    <h2>@ViewBag.Title</h2>
+    <br />
+    <p>
+        @Html.ActionLink("Add Product Status", "Create", null, new { @class = "btn btn-success" })
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StatusName)
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.StatusName)
-        </th>
-        <th></th>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StatusName)
+                </td>
+                <td>
+                    @Html.ActionLink("Modify Status", "Edit", new { id = item.ProductStatusID }) |
+                    @Html.ActionLink("Status Details", "Details", new { id = item.ProductStatusID })
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ProductStatusID }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.StatusName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductStatusID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductStatusID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductStatusID })
-        </td>
-    </tr>
-}
-
-</table>
+    </table>
+</div>
