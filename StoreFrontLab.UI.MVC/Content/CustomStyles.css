@@ -1,17 +1,34 @@
 ﻿
 .main-content {
-    min-height: 520px;
+    min-height: 60vh;
 }
 
+div, label {
+    display: block;
+}
 
+a {
+    color: rgba(127, 173, 57, 1);
+    text-decoration: none;
+    background-color: transparent;
+}
 
+/*Apply orange to generic anchor tags*/
+a:hover, a:focus {
+text-decoration: none;
+outline: none;
+color: #FC8A06;
+}
 
+.site-orange-text {
+    color: #FC8A06;
+}
 
+/*Orange in the Header*/
+.header__top__left ul li {
+    color: #FC8A06;
+}
 
-
-
-
-
-
-
-
+h2 {
+    font-weight: bold;
+}
