@@ -1,14 +1,14 @@
 ﻿@model StoreFrontLab.DATA.EF.Product
 
 @{
-    ViewBag.Title = "Edit Product:"+Model.Name;
+    ViewBag.Title = "Edit Product:" + Model.Name;
 }
 
 <div class="offset-lg-2 col-lg-8 order-md-1 order-1">
     <h2>@ViewBag.Title</h2>
     <br />
 
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Edit", "Products", FormMethod.Post, new { @enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
 
@@ -86,7 +86,10 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.ProductImage, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.ProductImage, new { htmlAttributes = new { @class = "form-control" } })
+                    @*@Html.EditorFor(model => model.ProductImage, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.HiddenFor(model => model.ProductImage)
+                    <img src="~/Content/img/product/@Model.ProductImage" title="@Model.Name" alt="@Model.Name" />
+                    <input type="file" name="productImage" />
                     @Html.ValidationMessageFor(model => model.ProductImage, "", new { @class = "text-danger" })
                 </div>
             </div>

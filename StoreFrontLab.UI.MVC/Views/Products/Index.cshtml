@@ -64,7 +64,8 @@
                     @Html.DisplayFor(modelItem => item.DiscountPercentage)
                 </td>*@
                 <td> @* Thumbnail img here *@
-                    @Html.DisplayFor(modelItem => item.ProductImage)
+                    @*@Html.DisplayFor(modelItem => item.ProductImage)*@
+                    <img src="~/Content/img/product/t_@item.ProductImage" title="@item.Name" alt="@item.Name Image" />
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Category.CategoryName)

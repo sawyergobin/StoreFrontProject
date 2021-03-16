@@ -32,3 +32,8 @@ color: #FC8A06;
 h2 {
     font-weight: bold;
 }
+
+.footer{
+    margin-top: 2em;
+    padding-top: 2em;
+}

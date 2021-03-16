@@ -15,7 +15,7 @@ namespace StoreFrontLab.UI.MVC.Controllers
         }
 
         [HttpGet]
-        //[Authorize] Commented out until logins exits
+        [Authorize]
         public ActionResult About()
         {
             ViewBag.Message = "Your app description page.";
@@ -24,6 +24,7 @@ namespace StoreFrontLab.UI.MVC.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult Contact()
         {
             return View();
@@ -32,6 +33,7 @@ namespace StoreFrontLab.UI.MVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Contact(ContactViewModel contactFormVM)
         {
             if (!ModelState.IsValid)

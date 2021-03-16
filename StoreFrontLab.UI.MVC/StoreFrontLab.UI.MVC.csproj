@@ -187,6 +187,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Utilities\ImageService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\bootstrap.min.css" />
@@ -232,7 +233,6 @@
     <Content Include="Content\img\featured\feature-7.jpg" />
     <Content Include="Content\img\featured\feature-8.jpg" />
     <Content Include="Content\img\hero\banner.jpg" />
-    <Content Include="Content\img\language.png" />
     <Content Include="Content\img\latest-product\lp-1.jpg" />
     <Content Include="Content\img\latest-product\lp-2.jpg" />
     <Content Include="Content\img\latest-product\lp-3.jpg" />
@@ -253,18 +253,9 @@
     <Content Include="Content\img\product\discount\pd-4.jpg" />
     <Content Include="Content\img\product\discount\pd-5.jpg" />
     <Content Include="Content\img\product\discount\pd-6.jpg" />
-    <Content Include="Content\img\product\product-1.jpg" />
-    <Content Include="Content\img\product\product-10.jpg" />
-    <Content Include="Content\img\product\product-11.jpg" />
-    <Content Include="Content\img\product\product-12.jpg" />
-    <Content Include="Content\img\product\product-2.jpg" />
-    <Content Include="Content\img\product\product-3.jpg" />
-    <Content Include="Content\img\product\product-4.jpg" />
-    <Content Include="Content\img\product\product-5.jpg" />
-    <Content Include="Content\img\product\product-6.jpg" />
-    <Content Include="Content\img\product\product-7.jpg" />
-    <Content Include="Content\img\product\product-8.jpg" />
-    <Content Include="Content\img\product\product-9.jpg" />
+    <Content Include="Content\img\product\NoImage.jpg" />
+    <Content Include="Content\img\product\t_NoImage.jpg" />
+    <Content Include="Content\img\VVMEstLogo.png" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\jquery-3.3.1.min.js" />
     <Content Include="Content\js\jquery-ui.min.js" />

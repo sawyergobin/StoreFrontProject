@@ -10,6 +10,7 @@ using StoreFrontLab.DATA.EF;
 
 namespace StoreFrontLab.UI.MVC.Controllers
 {
+    [Authorize(Roles = "Admin, Support")]
     public class ProductStatusesController : Controller
     {
         private StoreFrontEntities db = new StoreFrontEntities();
