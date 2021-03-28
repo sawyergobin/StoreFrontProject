@@ -83,6 +83,15 @@
             </dd>
 
         </dl>
+        <p>
+            @using (Html.BeginForm("AddToCart", "Products", new { @productID = Model.ProductID}, FormMethod.Post, new { @class = "text-center" }))
+            {
+                @Html.HiddenFor(x => x.ProductID)
+                <span class="label">Quantity: </span>
+                @Html.TextBox("Qty", 1, new { @class = "form-control", style = "max-width:50px;display:inline;" })
+                <input type="submit" value="Add to Cart" class="btn btn-success" name="qty" />
+            }
+        </p>
     </div>
     <p>
         @Html.ActionLink("Modify Category", "Edit", new { id = Model.ProductID }) |

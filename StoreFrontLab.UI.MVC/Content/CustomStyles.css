@@ -33,6 +33,14 @@ h2 {
     font-weight: bold;
 }
 
+.nice-select {
+    float: none;
+}
+
+div.hero__text h2 {
+    background-color: rgba(255, 255, 255, .6);
+}
+
 .footer{
     margin-top: 2em;
     padding-top: 2em;

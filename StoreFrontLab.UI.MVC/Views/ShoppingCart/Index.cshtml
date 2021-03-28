@@ -1,0 +1,85 @@
+﻿@*Step 6: generate the view and customize it*@
+@*
+    Generated this page with list scaffolding for the CartItemViewModel, but we have to chage the model because we are passing over a dictionary
+*@
+@*@model IEnumerable<MVC3.UI.MVC.Models.CartItemViewModel>*@
+@model Dictionary<int, StoreFrontLab.UI.MVC.Models.CartItemViewModel>
+
+@{
+    ViewBag.Title = "Shopping Cart";
+    //Add local variables for calculations on this page. These are running total variables.
+    decimal? cartTotal = 0;
+    int totalCountOfItems = 0;
+}
+
+<p class="text-right">
+    @Html.ActionLink("Back to Shopping", "Index", "Products", null, new { @class = "btn btn-info" })
+</p>
+<h2 class="text-center">@ViewBag.Title</h2>
+
+@if (Model.Count == 0)
+{
+    <p class="alert alert-warning">
+        @ViewBag.Message
+    </p>
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th>Product Image</th>
+            <th>Quantity</th>
+            <th>Product Name</th>
+            <th>Price Per Item</th>
+            <th>Total Price</th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="~/Content/img/product/t_@item.Value.VendingItem.ProductImage" alt="@item.Value.VendingItem.Name Cover" title="@item.Value.VendingItem.Name" />
+                </td>
+                <td>
+                    @using (Html.BeginForm("UpdateCart", "ShoppingCart", FormMethod.Post))
+                    {
+                        @Html.Hidden("productID", item.Value.VendingItem.ProductID) //This is so we can pass the ID of the item the user is updating to the controller
+                        @Html.TextBox("qty", item.Value.Qty, new { @class = "form-control", @style = "max-width:50px;display:inline;" }) // shows the user the current qty when the page first loads
+                        <input type="submit" value="Update Quantity" class="btn btn-info" />
+                    }
+
+                    @{
+                        //Calculate the running total variable for number of items in the cart
+                        totalCountOfItems += item.Value.Qty;
+                    }
+                </td>
+                <td>@item.Value.VendingItem.Name</td>
+                <td>
+                    @* Remember if you want currency formatting, you need String.Format() *@
+                    @String.Format($"{item.Value.VendingItem.Price:c}")
+                </td>
+                <td>
+                    @* Calculate the line item total and update the running total variable for the overall cost of items in the cart *@
+                    @{
+                        decimal? lineTotal = item.Value.VendingItem.Price * item.Value.Qty;
+                        cartTotal += lineTotal;
+                    }
+                    @String.Format($"{lineTotal:c}")
+                    
+                </td>
+                <td>@Html.ActionLink("Remove from Cart", "RemoveFromCart", "ShoppingCart", new { id = item.Key }, null)</td>
+            </tr>
+        }
+
+    </table>
+}
+
+@{Session["totalItems"] = totalCountOfItems;
+    Session["totalPrice"] = cartTotal;
+}
+
+<p class="alert alert-success text-center" style="font-size: 1.25em;">
+    You have @totalCountOfItems item@(totalCountOfItems == 1 ? "" : "s") in your cart.
+    Your total before taxes and shipping is @string.Format($"{cartTotal:c}.")
+</p>

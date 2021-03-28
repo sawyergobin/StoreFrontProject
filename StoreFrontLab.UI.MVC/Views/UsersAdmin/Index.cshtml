@@ -1,36 +1,44 @@
 ﻿@model IEnumerable<StoreFrontLab.UI.MVC.Models.ApplicationUser>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Users";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.UserName)
-        </th>
-        <th>
-
-        </th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+<div class="offset-lg-2 col-lg-8 order-md-1 order-1">
+    <h2>@ViewBag.Title</h2>
+    <p>
+        @Html.ActionLink("Add New User", "Create")
+    </p>
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserName)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
-        </tr>
-    }
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
 
-</table>
+            </th>
+            <th>
+
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.ActionLink("Modify User", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("User Info", "Details", new { id = item.Id })
+                    
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class="btn btn-danger"})
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
