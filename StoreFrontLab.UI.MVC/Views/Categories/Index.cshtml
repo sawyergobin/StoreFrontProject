@@ -181,7 +181,12 @@
                 error: function (e) {
                     $('#MessageContent').html('<div class="alert alert-warning">There was an error, please try again or contact your site administrator.</div>');
                     $(function () {
-                        var row =                            '<tr>' +                            '<td class="col-md-4">' + originalContent.CategoryName + '</td>' +                            '<td>Refresh to view options</td>' +                            '</tr>';                        $('#Category-' + originalContent.CategoryID).replaceWith(row);
+                        var row =
+                            '<tr>' +
+                            '<td class="col-md-4">' + originalContent.CategoryName + '</td>' +
+                            '<td>Refresh to view options</td>' +
+                            '</tr>';
+                        $('#Category-' + originalContent.CategoryID).replaceWith(row);
                     });//end of build and replace row functionality
                 }//end of the error function
             });//end of our ajax function
