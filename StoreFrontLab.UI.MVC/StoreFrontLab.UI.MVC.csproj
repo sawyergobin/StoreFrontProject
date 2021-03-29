@@ -604,6 +604,9 @@
     <Content Include="Views\ProductStatuses\Edit.cshtml" />
     <Content Include="Views\ProductStatuses\Index.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\Categories\CategoryDetails.cshtml" />
+    <Content Include="Views\Categories\CategoryCreate.cshtml" />
+    <Content Include="Views\Categories\CategoryEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -17,6 +17,10 @@
     <link rel="stylesheet" href="~/Content/css/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="~/Content/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="~/Content/css/slicknav.min.css" type="text/css">
+
+    @* JQueryUI *@
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css">
+
     <link rel="stylesheet" href="~/Content/css/style.css" type="text/css">
 
     <link href="~/Content/CustomStyles.css" rel="stylesheet" type="text/css" />
@@ -224,6 +228,11 @@
         </div>
     </section>
     <!-- Hero Section End -->
+    <div id="MessageDisplay" class="row">
+        <div class="col-md-10 col-md-offset-1" id="MessageContent">
+        </div>
+    </div>
+
     <div class="main-content">
         @RenderBody()
     </div>
@@ -310,6 +319,12 @@
     <script src="~/Content/js/mixitup.min.js"></script>
     <script src="~/Content/js/owl.carousel.min.js"></script>
     <script src="~/Content/js/main.js"></script>
+
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>*@
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.ajax.unobtrusive/3.2.4/jquery.unobtrusive-ajax.min.js"></script>
+
     @RenderSection("scripts", false)
 
     <script>
