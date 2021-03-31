@@ -6,9 +6,9 @@
 <div class="offset-lg-2 col-lg-8 order-md-1 order-1">
     <h2>@ViewBag.Title</h2>
     <br />
-    <div>
+    <div class="row">
         <hr />
-        <dl class="dl-horizontal">
+        <dl class="dl-horizontal col-lg-6 col-sm-12">
             <dt>
                 @Html.DisplayNameFor(model => model.Name)
             </dt>
@@ -40,32 +40,30 @@
             <dd>
                 @Html.DisplayFor(model => model.Price)
             </dd>
+            @if (User.IsInRole("Admin") || User.IsInRole("Support"))
+            {
 
-            <dt>
-                @Html.DisplayNameFor(model => model.IsOnSale)
-            </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.IsOnSale)
+                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.IsOnSale)
-            </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.IsOnSale)
+                </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.DiscountPercentage)
-            </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.DiscountPercentage)
+                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.DiscountPercentage)
-            </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.DiscountPercentage)
+                </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.ProductImage)
-            </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ProductImage)
+                </dt>
 
-            <dd>
-                @*@Html.DisplayFor(model => model.ProductImage)*@
-                <img src="~/Content/img/product/@Model.ProductImage" title="@Model.Name" alt="@Model.Name" />
-            </dd>
-
+            }
             <dt>
                 @Html.DisplayNameFor(model => model.Category.CategoryName)
             </dt>
@@ -81,10 +79,22 @@
             <dd>
                 @Html.DisplayFor(model => model.ProductStatus.StatusName)
             </dd>
-
         </dl>
+        <dl class="dl-horizontal col-lg-6 col-sm-12">
+            <dt>
+                @Html.DisplayNameFor(model => model.ProductImage)
+            </dt>
+
+            <dd>
+                @*@Html.DisplayFor(model => model.ProductImage)*@
+                <img src="~/Content/img/product/@Model.ProductImage" title="@Model.Name" alt="@Model.Name" />
+            </dd>
+
+            
+        </dl>
+        
         <p>
-            @using (Html.BeginForm("AddToCart", "Products", new { @productID = Model.ProductID}, FormMethod.Post, new { @class = "text-center" }))
+            @using (Html.BeginForm("AddToCart", "Products", new { @productID = Model.ProductID }, FormMethod.Post, new { @class = "text-center" }))
             {
                 @Html.HiddenFor(x => x.ProductID)
                 <span class="label">Quantity: </span>
@@ -93,8 +103,9 @@
             }
         </p>
     </div>
+    <br />
     <p>
-        @Html.ActionLink("Modify Category", "Edit", new { id = Model.ProductID }) |
-        @Html.ActionLink("Back to Categories", "Index")
+        @Html.ActionLink("Modify Product", "Edit", new { id = Model.ProductID }) |
+        @Html.ActionLink("Back to All Products", "Index")
     </p>
 </div>

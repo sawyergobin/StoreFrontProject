@@ -17,9 +17,12 @@
     <link rel="stylesheet" href="~/Content/css/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="~/Content/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="~/Content/css/slicknav.min.css" type="text/css">
-
+    @* DataTables.Net *@
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
     @* JQueryUI *@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css">
+
+    @RenderSection("styles", required: false)
 
     <link rel="stylesheet" href="~/Content/css/style.css" type="text/css">
 
@@ -144,7 +147,7 @@
                             @if (Request.IsAuthenticated)
                             {
                                 <li><a href="@Url.Action("Index", "Products")">Vending Products</a></li>
-                                <li><a href="#">Shopping Cart</a></li>
+                                <li><a href="@Url.Action("Index", "ShoppingCart")">Your Cart</a></li>
                                 <li><a href="@Url.Action("About", "Home")">About Us</a></li>
                                 <li><a href="@Url.Action("Contact", "Home")">Contact Us</a></li>
 
