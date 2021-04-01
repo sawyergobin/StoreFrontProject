@@ -10,6 +10,8 @@
         <EntityTypeShape EntityType="StoreFrontModel.ProductStatus" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
         <AssociationConnector Association="StoreFrontModel.FK_Products_Categories" ManuallyRouted="false" />
         <AssociationConnector Association="StoreFrontModel.FK_Products_ProductStatuses" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="StoreFrontModel.UserDetail" Width="1.5" PointX="6.75" PointY="4.375" />
+        <AssociationConnector Association="StoreFrontModel.FK_UserDetails_Categories" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

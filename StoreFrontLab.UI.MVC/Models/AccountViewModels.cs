@@ -79,6 +79,21 @@ namespace StoreFrontLab.UI.MVC.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "First Name")]
+        [MaxLength(50, ErrorMessage = "Must be less than 50 characters")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last Name")]
+        [MaxLength(50, ErrorMessage = "Must be less than 50 characters")]
+        public string LastName { get; set; }
+
+        [Required]
+        [Display(Name = "Favorite Snack Category")]
+        public int FavCategoryID { get; set; }
+
     }
 
     public class ResetPasswordViewModel
@@ -109,4 +124,5 @@ namespace StoreFrontLab.UI.MVC.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
+
 }

@@ -261,6 +261,37 @@ namespace StoreFrontLab.UI.MVC.Controllers
         }//end AddToCart
 
 
+        //FILTERED ACTION RESULTS BELOW++++++++++++++++++++++++++++++++++
+        public ActionResult SweetSnacks()
+        {
+            var filterSnacks = db.Products.Where(x => x.Category.CategoryName == "Sweet Snacks").OrderByDescending(x => x.Price);
+
+            return View("Index", filterSnacks.ToList());
+        }
+
+        public ActionResult SavorySnacks()
+        {
+            var filterSnacks = db.Products.Where(x => x.Category.CategoryName == "Savory Snacks").OrderByDescending(x => x.Price);
+
+            return View("Index", filterSnacks.ToList());
+        }
+
+        public ActionResult CarbRefresh()
+        {
+            var filterSnacks = db.Products.Where(x => x.Category.CategoryName == "Carbonated Refreshments").OrderByDescending(x => x.Price);
+
+            return View("Index", filterSnacks.ToList());
+        }
+
+        public ActionResult Refresh()
+        {
+            var filterSnacks = db.Products.Where(x => x.Category.CategoryName == "Refreshments").OrderByDescending(x => x.Price);
+
+            return View("Index", filterSnacks.ToList());
+        }
+
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

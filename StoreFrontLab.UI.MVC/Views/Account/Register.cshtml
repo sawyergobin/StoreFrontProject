@@ -3,7 +3,7 @@
     ViewBag.Title = "Register";
 }
 
-<h2 class="text-center">@ViewBag.Title.</h2>
+<h2 class="text-center">@ViewBag.Title</h2>
 
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form", style = "width:80%;margin:auto;" }))
 {
@@ -11,6 +11,26 @@
     <h4>Create a new account</h4>
 
     @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group row">
+        @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label text-right" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group row">
+        @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label text-right" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+        </div>
+    </div>
+    //Optional Future functionality
+    @*<div class="form-group row">
+        @Html.LabelFor(m => m.FavCategoryID, new { @class = "col-md-2 control-label text-right" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.FavCategoryID, new { @class = "form-control" })
+        </div>
+    </div>*@
+    
     <div class="form-group row">
         @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label text-right" })
         <div class="col-md-10">

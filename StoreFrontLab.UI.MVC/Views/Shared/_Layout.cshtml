@@ -109,7 +109,7 @@
                         <div class="header__top__left">
                             <ul>
                                 <li><a href="@Url.Action("Contact", "Home")"><i class="fa fa-envelope"></i></a> staff@virtualvm.com</li>
-                                <li class="site-orange-text">Free 1-Hour express shipping for orders over $10</li>
+                                <li class="site-orange-text">Free 1-Hour express shipping for Super Snacker Members!</li>
                             </ul>
                         </div>
                     </div>
@@ -146,23 +146,25 @@
                             }
                             @if (Request.IsAuthenticated)
                             {
-                                <li><a href="@Url.Action("Index", "Products")">Vending Products</a></li>
-                                <li><a href="@Url.Action("Index", "ShoppingCart")">Your Cart</a></li>
+                                <li>
+                                    <a href="@Url.Action("Index", "Products")">Vending Products</a>
+                                    @if (User.IsInRole("Admin") || User.IsInRole("Support"))
+                                    {
+                                        <ul class="header__menu__dropdown">
+                                            <li>@Html.ActionLink("Product Statuses", "Index", "ProductStatuses")</li>
+                                            <li>@Html.ActionLink("Product Categories", "Index", "Categories")</li>
+                                            @if (User.IsInRole("Admin"))
+                                            {
+                                                <li>@Html.ActionLink("Roles Admin", "Index", "RolesAdmin")</li>
+                                                <li>@Html.ActionLink("Users Admin", "Index", "UsersAdmin")</li>
+                                            }
+                                        </ul>
+                                    }
+                                </li>
                                 <li><a href="@Url.Action("About", "Home")">About Us</a></li>
                                 <li><a href="@Url.Action("Contact", "Home")">Contact Us</a></li>
-
                             }
 
-                            @if (User.IsInRole("Admin") || User.IsInRole("Support"))
-                            {
-                                <li>@Html.ActionLink("Product Statuses", "Index", "ProductStatuses")</li>
-                                <li>@Html.ActionLink("Product Categories", "Index", "Categories")</li>
-                            }
-                            @if (User.IsInRole("Admin"))
-                            {
-                                <li>@Html.ActionLink("Roles Admin", "Index", "RolesAdmin")</li>
-                                <li>@Html.ActionLink("Users Admin", "Index", "UsersAdmin")</li>
-                            }
                         </ul>
                     </nav>
                 </div>

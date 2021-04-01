@@ -18,6 +18,7 @@ namespace StoreFrontLab.DATA.EF
         public Category()
         {
             this.Products = new HashSet<Product>();
+            this.UserDetails = new HashSet<UserDetail>();
         }
     
         public int CategoryID { get; set; }
@@ -25,5 +26,7 @@ namespace StoreFrontLab.DATA.EF
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Products { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserDetail> UserDetails { get; set; }
     }
 }
