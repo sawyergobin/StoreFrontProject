@@ -58,7 +58,7 @@
                 <dd>
                     @Html.DisplayFor(model => model.DiscountPercentage)
                 </dd>
-                
+
             }
             <dt>
                 @Html.DisplayNameFor(model => model.Category.CategoryName)
@@ -86,9 +86,9 @@
                 <img src="~/Content/img/product/@Model.ProductImage" title="@Model.Name" alt="@Model.Name" />
             </dd>
 
-            
+
         </dl>
-        
+
         <p>
             @using (Html.BeginForm("AddToCart", "Products", new { @productID = Model.ProductID }, FormMethod.Post, new { @class = "text-center" }))
             {
@@ -100,8 +100,13 @@
         </p>
     </div>
     <br />
+    @if (User.IsInRole("Admin") || User.IsInRole("Support"))
+    {
+        <p>
+            @Html.ActionLink("Modify Product", "Edit", new { id = Model.ProductID })
+        </p>
+    }
     <p>
-        @Html.ActionLink("Modify Product", "Edit", new { id = Model.ProductID }) |
-        @Html.ActionLink("Back to All Products", "Index")
+        @Html.ActionLink("Back to All Products", "Index", null, new { @class = "btn btn-danger" })
     </p>
 </div>

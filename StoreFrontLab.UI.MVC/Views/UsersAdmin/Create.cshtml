@@ -1,10 +1,11 @@
 ﻿@model StoreFrontLab.UI.MVC.Models.RegisterViewModel
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Create New User";
 }
 
-<h2>@ViewBag.Title.</h2>
+
 <div class="offset-lg-2 col-lg-8 order-md-1 order-1">
+    <h2>@ViewBag.Title</h2>
     @using (Html.BeginForm("Create", "UsersAdmin", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
