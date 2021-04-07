@@ -10,13 +10,14 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
     <!-- Css Styles -->
-    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css" type="text/css">
+    @Styles.Render("~/Content/styles")
+    @*<link rel="stylesheet" href="~/Content/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="~/Content/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="~/Content/css/elegant-icons.css" type="text/css">
     <link rel="stylesheet" href="~/Content/css/nice-select.css" type="text/css">
     <link rel="stylesheet" href="~/Content/css/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="~/Content/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="~/Content/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="~/Content/css/slicknav.min.css" type="text/css">*@
     @* DataTables.Net *@
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
     @* JQueryUI *@
@@ -102,7 +103,7 @@
     <!-- Hamburger Mobile Menu End -->
     <!-- Header Section Begin -->
     <header class="header">
-        <div class="header__top">
+        <div class="header__top">   
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
@@ -267,14 +268,17 @@
     </footer>
     <!-- Footer Section End -->
     <!-- Js Plugins -->
-    <script src="~/Content/js/jquery-3.3.1.min.js"></script>
+
+    @* Scripts Bundle Below *@
+    @Scripts.Render("~/Content/scripts")
+    @*<script src="~/Content/js/jquery-3.3.1.min.js"></script>
     <script src="~/Content/js/bootstrap.min.js"></script>
     <script src="~/Content/js/jquery.nice-select.min.js"></script>
     <script src="~/Content/js/jquery-ui.min.js"></script>
     <script src="~/Content/js/jquery.slicknav.js"></script>
     <script src="~/Content/js/mixitup.min.js"></script>
     <script src="~/Content/js/owl.carousel.min.js"></script>
-    <script src="~/Content/js/main.js"></script>
+    <script src="~/Content/js/main.js"></script>*@
 
     @*<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>*@
 
