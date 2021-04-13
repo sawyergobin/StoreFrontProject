@@ -229,6 +229,7 @@
     <Content Include="Content\js\main.js" />
     <Content Include="Content\js\mixitup.min.js" />
     <Content Include="Content\js\owl.carousel.min.js" />
+    <Content Include="error.html" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="_Archive\ogani-master\blog-details.html" />

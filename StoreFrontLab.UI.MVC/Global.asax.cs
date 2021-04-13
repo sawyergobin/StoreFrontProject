@@ -17,5 +17,9 @@ namespace StoreFrontLab.UI.MVC
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+        protected void Application_Error()
+        {
+            //Response.Redirect("~/error.html");
+        }
     }
 }
